@@ -69,6 +69,11 @@
       width: 0%;
       transition: width 0.3s ease;
     }
+
+    .row {
+      display: flex;
+      gap: 8px;
+    }
   </style>
 </head>
 <body>
@@ -78,7 +83,11 @@
     <div id="next" class="number"></div>
   </div>
 
-  <button id="nextBtn">Следующее число</button>
+  <div class="row">
+    <button id="prevBtn">Предыдущее число</button>
+    <button id="nextBtn">Следующее число</button>
+  </div>
+  
 
   <div class="progress">
     <div id="progressText">0% (0 / 0)</div>
@@ -93,6 +102,7 @@
     const prevEl = document.getElementById("prev");
     const currentEl = document.getElementById("current");
     const nextEl = document.getElementById("next");
+    const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
     const progressText = document.getElementById("progressText");
     const progressBar = document.getElementById("progressBar");
@@ -116,6 +126,13 @@
     nextBtn.addEventListener("click", () => {
       if (index < numbers.length - 1) {
         index++;
+        updateNumbers();
+      }
+    });
+
+    prevBtn.addEventListener("click", () => {
+      if (index > 0) {
+        index--;
         updateNumbers();
       }
     });
