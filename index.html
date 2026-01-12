@@ -109,6 +109,8 @@
 
       progressText.textContent = `${percent}% (${done} / ${total}) — осталось ${left}`;
       progressBar.style.width = `${percent}%`;
+
+      localStorage.setItem("lastIndex", index);
     }
 
     nextBtn.addEventListener("click", () => {
